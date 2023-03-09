@@ -1,15 +1,24 @@
-document.body.innerHTML += "";
-//alert("Hej Asbjørn.js");
-console.log("Hej Asbjørn.js");
-console.log("Fungerer det faktisk.js");
-console.log("Ja det gør det da");
-function ShowInfo() {
-  document.querySelector("h3").textContent =
-    "Great success " +
-    document.querySelector("#name").value +
-    " and your age is " +
-    document.querySelector("#age").value +
-    " and your email is " +
-    document.querySelector("#email").value;
+"use strict";
+
+window.addEventListener("load", start);
+
+function start() {
+  addClick();
 }
-document.querySelector("button").addEventListener("click", ShowInfo);
+
+function addClick() {
+  console.log("button can be clicked");
+  let button = document.querySelector("#knap");
+  button.addEventListener("mousedown", showInfo);
+}
+
+function showInfo() {
+  console.log("button was clicked");
+  let ageValue = document.querySelector("#age").value;
+  let emailValue = document.querySelector("#email").value;
+  let nameValue = document.querySelector("#name").value;
+
+  document.querySelector(
+    "h3"
+  ).textContent = `Hej ${nameValue}, din alder er ${ageValue} og din email er ${emailValue}`;
+}
